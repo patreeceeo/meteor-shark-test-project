@@ -1,19 +1,20 @@
-if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to meteor-shark-test.";
-  };
-
-  Template.hello.events({
-    'click input': function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
+Router.map(function () {
+  /**
+   * The route's name is "home"
+   * The route's template is also "home"
+   * The default action will render the home template
+   */
+  this.route('home', {
+    path: '/',
+    template: 'home'
   });
-}
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  /**
+   * The route's name is "posts"
+   * The route's path is "/posts"
+   * The route's template is inferred to be "posts"
+   */
+  this.route('posts', {
+    path: '/posts'
   });
-}
+})
